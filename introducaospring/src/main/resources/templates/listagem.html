@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 2</title>
+</head>
+<body>
+    <h1>Listagem de Clientes</h1>
+    <a th:href="@{/novo}">Novo Cliente</a>
+    <table border="1px">
+        <tr th:each="umCliente : ${Clientes}">
+            <td th:text="*{umCliente.Id}"></td>
+            <td th:text="*{umCliente.Nome}"></td>
+            <td th:text="*{umCliente.Nascimento}"></td>
+        </tr>
+    </table>
+</body>
+</html>

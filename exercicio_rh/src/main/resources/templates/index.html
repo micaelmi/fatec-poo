@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RH Control</title>
+
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="/img/icon.png" alt="Logo" width="64">
+      <h1>RH Control</h1>
+    </header>
+    <main class="container">
+      <h2>Seja bem-vind@ ao RH Control</h2>
+      <h3>Tenha controle sobre seus funcionários de forma simples e eficaz</h3>
+      <div class="collection">
+        <a class="card" th:href="@{/funcionario/listar}">
+          <img src="/img/employees.png" alt="Funcionários" width="96">
+          <p class="title">Funcionários</p>
+        </a>
+        <a class="card" th:href="@{/cargo/listar}">
+          <img src="/img/office-chair.png" alt="Cargos" width="96">
+          <p class="title">Cargos</p>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
