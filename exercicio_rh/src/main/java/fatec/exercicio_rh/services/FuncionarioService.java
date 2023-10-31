@@ -31,7 +31,8 @@ public class FuncionarioService {
     repository.save(funcionario);
   }
 
-  public void excluir(Funcionario funcionario) {
+  public void excluir(int id) {
+    Funcionario funcionario = repository.findById(id).orElse(null);
     repository.delete(funcionario);
   }
 }

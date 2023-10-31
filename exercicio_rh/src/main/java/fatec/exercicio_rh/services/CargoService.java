@@ -31,7 +31,8 @@ public class CargoService {
     repository.save(cargo);
   }
 
-  public void excluir(Cargo cargo) {
+  public void excluir(int id) {
+    Cargo cargo = repository.findById(id).orElse(null);
     repository.delete(cargo);
   }
 }

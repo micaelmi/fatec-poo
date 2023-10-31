@@ -4,36 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edição de dados do funcionário</title>
+    <title>Edição de dados do cargo</title>
 
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <header>
       <img src="/img/icon.png" alt="Logo" width="64">
-      <h1>Edição de dados do funcionário</h1>
+      <h1>Edição de dados do cargo</h1>
     </header>
     <main class="container">
-        <form th:action="@{/funcionario/editar}" th:object="${Funcionario}" method="POST">
+        <form th:action="@{/cargo/cadastrar}" th:object="${Cargo}" method="POST">
             <div>
                 <label>ID</label>
                 <input type="text" th:field="*{id}" readonly>
             </div>
             <div>
                 <label>Nome</label>
-                <input type="text" th:field="*{nome}">
+                <input type="text" th:field="*{nome}" >
             </div>
             <div>
-                <label>Carteira de trabalho</label>
-                <input type="text" th:field="*{ctps}" >
+                <label>Descrição</label>
+                <input type="text" th:field="*{descricao}" >
             </div>
             <div>
-                <label>Data de admissao</label>
-                <input type="date" th:field="*{admissao}" >
-            </div>
-            <div>
-                <label>Data de rescisão</label>
-                <input type="date" th:field="*{rescisao}" >
+                <label>Salário</label>
+                <input type="number" step="0.01" th:field="*{salario}" >
             </div>
             <input type="submit" value="Salvar">
         </form>

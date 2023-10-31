@@ -3,6 +3,7 @@ package fatec.exercicio_rh.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fatec.exercicio_rh.models.Cargo;
@@ -27,7 +28,7 @@ public class CargoController {
 
   @GetMapping(value = "/cargo/listar")
   public ModelAndView listar() {
-    ModelAndView mv = new ModelAndView("cargo/listagem");
+    ModelAndView mv = new ModelAndView("cargo/listar");
     mv.addObject("Cargos", service.listar());
 
     return mv;
@@ -37,7 +38,7 @@ public class CargoController {
 
   @GetMapping(value = "/cargo/cadastrar")
   public ModelAndView formCadastroCargo() {
-    ModelAndView mv = new ModelAndView("cargo/cadastro");
+    ModelAndView mv = new ModelAndView("cargo/cadastrar");
     Cargo f = new Cargo();
     mv.addObject("Cargo", f);
 
@@ -53,8 +54,8 @@ public class CargoController {
   // === EDITAR === \\
 
   @GetMapping(value = "/cargo/editar")
-  public ModelAndView formEdicaoCargo(int id) {
-    ModelAndView mv = new ModelAndView("cargo/edicao");
+  public ModelAndView formEdicaoCargo(@RequestParam int id) {
+    ModelAndView mv = new ModelAndView("cargo/editar");
     mv.addObject("Cargo", service.listar(id));
 
     return mv;
@@ -68,9 +69,9 @@ public class CargoController {
 
   // === EXCLUIR === \\
   
-  @PostMapping("/cargo/excluir")
-  public String excluirCargo(Cargo cargo) {
-    service.excluir(cargo);
+  @GetMapping("/cargo/excluir")
+  public String excluirCargo(@RequestParam int id) {
+    service.excluir(id);
     return "redirect:/cargo/listar";
   }
 

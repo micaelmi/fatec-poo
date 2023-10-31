@@ -24,7 +24,7 @@ public class Cargo {
     private String nome;
     
     @Column(name = "car_descricao", length = 30, nullable = false)
-    private String ctps;
+    private String descricao;
     
     @Column(name = "car_salario", nullable = false, columnDefinition = "decimal(10,2)")
     private double salario;

@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Listagem de funcionários</title>
+    <title>Listagem de cargos</title>
 
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <header>
       <img src="/img/icon.png" alt="Logo" width="64">
-      <h1>Listagem de funcionários</h1>
+      <h1>Listagem de cargos</h1>
     </header>
     <main class="container">
         <table>
@@ -19,30 +19,28 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>CTPS</th>
-                    <th>Admissão</th>
-                    <th>Rescisão</th>
+                    <th>Descrição</th>
+                    <th>Salário</th>
                     <th>Ações</th>
                 </tr>
             </thead>
-            <tr th:each="funcionario: ${Funcionarios}">
-              <th th:text="*{funcionario.id}"></th>
-              <th th:text="*{funcionario.nome}"></th>
-              <th th:text="*{funcionario.ctps}"></th>
-              <th th:text="*{funcionario.admissao}"></th>
-              <th th:text="*{funcionario.rescisao}"></th>
+            <tr th:each="cargo: ${Cargos}">
+                <th th:text="*{cargo.id}"></th>
+                <th th:text="*{cargo.nome}"></th>
+              <th th:text="*{cargo.descricao}"></th>
+              <th th:text="*{cargo.salario}"></th>
               <th class="actions">
-                <a th:href="@{'/funcionario/editar?id='+*{funcionario.id}}">
+                <a th:href="@{'/cargo/editar?id='+*{cargo.id}}">
                     <img src="/img/edit.png" alt="Editar" width="20">
                 </a>
-                <a th:href="@{'/funcionario/excluir?id='+*{funcionario.id}}">
+                <a th:href="@{'/cargo/excluir?id='+*{cargo.id}}">
                     <img src="/img/delete.png" alt="Excluir" width="20">
                 </a>
               </th>
             </tr>
           </table>
           <div class="novo">
-            <a th:href="@{/funcionario/cadastrar}">+ Cadastrar novo funcionário</a>
+            <a th:href="@{/cargo/cadastrar}">+ Cadastrar novo cargo</a>
           </div>
     </main>
   </body>
