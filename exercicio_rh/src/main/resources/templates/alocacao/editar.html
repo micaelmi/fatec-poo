@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edição de dados da alocação</title>
+
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="/img/icon.png" alt="Logo" width="64" />
+      <h1>Edição de dados da alocação</h1>
+    </header>
+    <main class="container">
+      <form
+        th:action="@{/alocacao/editar}"
+        th:object="${Alocacao}"
+        method="POST"
+      >
+        <div>
+          <label>ID</label>
+          <input type="text" th:field="*{id}" readonly />
+        </div>
+        <div>
+          <label>Funcionário</label>
+          <select name="funcionario" id="funcionario">
+            <option selected th:value="${Alocacao.funcionario.id}" th:text="${Alocacao.funcionario.nome}"></option>
+            <th:block th:each="funcionario : ${Funcionario}">
+              <option
+                th:value="${funcionario.id}"
+                th:text="${funcionario.nome}"
+              ></option>
+            </th:block>
+          </select>
+        </div>
+        <div>
+          <label>Cargo</label>
+          <select name="cargo" id="cargo">
+            <option selected th:value="${Alocacao.cargo.id}" th:text="${Alocacao.cargo.nome}"></option>
+            <th:block th:each="cargo : ${Cargo}">
+              <option th:value="${cargo.id}" th:text="${cargo.nome}"></option>
+            </th:block>
+          </select>
+        </div>
+        <div>
+          <label>Horas/mês</label>
+          <input type="number" th:field="*{horas_mes}" />
+        </div>
+        <div>
+          <label>Data de início</label>
+          <input type="datetime" th:field="*{inicio}" />
+        </div>
+        <div>
+          <label>Data de fim</label>
+          <input type="datetime" th:field="*{fim}" />
+        </div>
+        <input type="submit" value="Salvar" />
+      </form>
+    </main>
+  </body>
+</html>

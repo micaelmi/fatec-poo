@@ -14,7 +14,7 @@
       <h1>Edição de dados do cargo</h1>
     </header>
     <main class="container">
-        <form th:action="@{/cargo/cadastrar}" th:object="${Cargo}" method="POST">
+        <form th:action="@{/cargo/editar}" th:object="${Cargo}" method="POST">
             <div>
                 <label>ID</label>
                 <input type="text" th:field="*{id}" readonly>

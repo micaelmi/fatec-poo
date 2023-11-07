@@ -113,7 +113,7 @@ form, form div {
   justify-content: center;
 }
 
-input {
+input, select {
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;

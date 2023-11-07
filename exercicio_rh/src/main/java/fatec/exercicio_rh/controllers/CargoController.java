@@ -17,13 +17,6 @@ public class CargoController {
     this.service = service;
   }
 
-  // === HOME === \\
-
-  // @GetMapping(value = "/")
-  // public String init() {
-  //   return "index";
-  // }
-
   // === LISTAR === \\
 
   @GetMapping(value = "/cargo/listar")

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listagem de alocações</title>
+
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="/img/icon.png" alt="Logo" width="64" />
+      <h1>Listagem de alocações</h1>
+    </header>
+    <main class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Funcionário</th>
+            <th>Cargo</th>
+            <th>Horas/mês</th>
+            <th>Data de Início</th>
+            <th>Data de Fim</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tr th:each="alocacao: ${Alocacoes}">
+          <th th:text="*{alocacao.id}"></th>
+          <th th:text="*{alocacao.funcionario.nome}"></th>
+          <th th:text="*{alocacao.cargo.nome}"></th>
+          <th th:text="*{alocacao.horas_mes}"></th>
+          <th th:text="*{alocacao.inicio}"></th>
+          <th th:text="*{alocacao.fim}"></th>
+          <th class="actions">
+            <a th:href="@{'/alocacao/editar?id='+*{alocacao.id}}">
+              <img src="/img/edit.png" alt="Editar" width="20" />
+            </a>
+            <a th:href="@{'/alocacao/excluir?id='+*{alocacao.id}}">
+              <img src="/img/delete.png" alt="Excluir" width="20" />
+            </a>
+          </th>
+        </tr>
+      </table>
+      <div class="novo">
+        <a th:href="@{/alocacao/cadastrar}">+ Alocar Funcionário</a>
+      </div>
+      <div class="novo">
+        <a th:href="@{/}">Voltar</a>
+      </div>
+    </main>
+  </body>
+</html>
