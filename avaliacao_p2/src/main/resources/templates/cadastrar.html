@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar contato</title>
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Cadastrar contato</h1>
+    </header>
+    <main class="container">
+      <form th:action="@{/cadastrar}" th:object="${Contato}" method="POST">
+        <div>
+          <label>Cliente</label>
+          <select name="cliente" id="cliente">
+            <option value="0" selected disabled>Selecione o cliente</option>
+            <th:block th:each="cliente : ${Cliente}">
+              <option
+                th:value="${cliente.numero}"
+                th:text="${cliente.nome}"
+              ></option>
+            </th:block>
+          </select>
+        </div>
+        <div>
+          <label>Tipo</label>
+          <input required type="text" th:field="*{tipo}" />
+        </div>
+        <div>
+          <label>Conteúdo</label>
+          <input required type="text" th:field="*{conteudo}" />
+        </div>
+
+        <input type="submit" value="Cadastrar" />
+      </form>
+    </main>
+  </body>
+</html>

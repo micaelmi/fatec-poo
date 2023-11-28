@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de contatos</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Lista de contatos</h1>
+    </header>
+    <main class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Cliente</th>
+            <th>Tipo</th>
+            <th>Conteúdo</th>
+          </tr>
+        </thead>
+        <tr th:each="contato: ${Contatos}">
+          <th th:text="*{contato.numero}"></th>
+          <th th:text="*{contato.cliente.nome}"></th>
+          <th th:text="*{contato.tipo}"></th>
+          <th th:text="*{contato.conteudo}"></th>
+        </tr>
+      </table>
+      <div class="novo">
+        <a th:href="@{/cadastrar}">+ Cadastrar novo contato</a>
+      </div>
+    </main>
+  </body>
+</html>
